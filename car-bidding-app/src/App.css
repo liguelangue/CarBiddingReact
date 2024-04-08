@@ -1,0 +1,142 @@
+/* App.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: linear-gradient(to right bottom, #121212, #1c1c1c);
+  color: #fff;
+}
+
+/* General styles */
+
+.App {
+  text-align: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.app-header {
+  color: #00c3ff;
+  margin: 2rem 0;
+  text-shadow: 2px 2px 8px #000;
+}
+
+.app-nav {
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background: linear-gradient(45deg, #ff005a, #00c3ff);
+  color: #ffffff;
+  border: 1px solid #fff;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #ff005a, #00c3ff);
+  box-shadow: 0 0 15px #00c3ff;
+}
+
+.app-nav .btn {
+  margin-bottom: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Page component styles */
+.Home, .LoginPage, .CreateAccountPage {
+  padding: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Car Cards */
+.cars-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cars-header {
+  font-size: 2rem;
+  color: #00c3ff;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 4px #000;
+}
+
+.car-card {
+  max-width: 800px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background: #1e1e1e;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+  border: 1px solid #333;
+}
+
+.car-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 8px rgba(0, 195, 255, 0.5);
+}
+
+.car-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.car-details h3, .car-details h2 {
+  font-size: 1.5rem;
+  color: #00c3ff;
+}
+
+.car-details p {
+  font-size: 1rem;
+  color: #999;
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .car-card {
+    margin: 10px;
+    padding: 10px;
+  }
+}
+
+/* Additional effects */
+@keyframes bgAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body, html {
+  animation: bgAnimation 15s ease infinite;
+  background-size: 300% 300%;
+}

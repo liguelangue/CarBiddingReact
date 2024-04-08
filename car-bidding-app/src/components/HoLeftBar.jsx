@@ -1,0 +1,1 @@
+// Including the search bar and filter for Home.jsx //
