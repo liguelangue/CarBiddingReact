@@ -18,6 +18,7 @@ function LoginPage() {
             email,
             phone_number: phoneNumber
         });
+        console.log(response.data)
         // Redirect to UserPage after successful login
         navigate('/user');  // Adjust the path as needed
     } catch (error) {
