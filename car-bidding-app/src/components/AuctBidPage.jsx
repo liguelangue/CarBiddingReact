@@ -1,5 +1,5 @@
 // should link with AcutBidHead.jsx, BidRecive.jsx, BidSubmit.jsx, CarNBid.jsx
-//
+//Xinmeng Wu
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
