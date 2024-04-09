@@ -19,8 +19,15 @@ function LoginPage() {
             phone_number: phoneNumber
         });
         console.log(response.data)
+
+        if (response.data && typeof response.data.email !== 'undefined') {
+          localStorage.setItem('userEmail', email);
+        } else {
+          console.error('Unexpected response format:', response.data);
+        }
+
         // Redirect to UserPage after successful login
-        navigate('/user');  // Adjust the path as needed
+        navigate(`/user/${encodeURIComponent(email)}`);  // Adjust the path as needed
     } catch (error) {
         if (error.response) {
             console.error('Error logging in:', error.response.data.message);

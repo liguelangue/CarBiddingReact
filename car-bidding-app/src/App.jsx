@@ -24,10 +24,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/create-account" element={<CrtAccPage />} />
-          <Route path="/user" element={<UserPage />} />
+          <Route path="/user/:userEmail" element={<UserPage />} />
+          <Route path="/auction/:vin" element={<AuctBidPage />} />
           <Route path="/admin-login" element={<AdminLoginPage />} />
           <Route path="/admin-page" element={<AdminPage />} />
-          <Route path="/auction/:vin" element={<AuctBidPage />} />
         </Routes>
       </div>
     </Router>
