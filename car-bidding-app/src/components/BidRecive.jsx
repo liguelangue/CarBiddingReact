@@ -4,30 +4,31 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function BidRecive({ refreshKey }) {
+function BidRecive({ vin, refreshKey }) {
   const [bids, setBids] = useState([]);
 
   useEffect(() => {
     const fetchBids = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}api/receive_bid/`);
-        setBids(response.data);
+        const filteredBids = response.data.filter(bid => bid.vin === vin);
+        setBids(filteredBids);
       } catch (error) {
         console.error('Error fetching bids:', error);
       }
     };
 
     fetchBids();
-  }, [refreshKey]);
+  }, [refreshKey, vin]);
 
   return (
     <div className="bid-receive-container">
-      <h2>All Bids</h2>
+      <h2>Bids for VIN: {vin}</h2>
       <ul>
         {bids.map((bid, index) => (
           <li key={index}>
             Bid ID: {bid.bid_id}, User ID: {bid.user}, Auction ID: {bid.auction}, 
-            Bid Amount: {bid.bid_amount}, VIN: {bid.vin}, Bid Time: {bid.bid_time}, 
+            Bid Amount: {bid.bid_amount}, Bid Time: {bid.bid_time}, 
             Bid Win: {bid.bidwin ? 'Yes' : 'No'}
           </li>
         ))}

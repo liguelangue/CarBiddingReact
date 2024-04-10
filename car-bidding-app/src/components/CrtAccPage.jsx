@@ -51,7 +51,7 @@ function CreateAccountPage() {
       </div>
         <nav className="app-nav">
           <Link to="/" className="nav-link"><button className="btn">Home</button></Link>
-          <Link to="/login" className="nav-link"><button className="btn">Login</button></Link>
+          <Link to="/login" className="nav-link"><button className="btn">User Login</button></Link>
           {/* <Link to="/create-account" className="nav-link"><button className="btn">Create Account</button></Link> */}
           <Link to="/admin-login" className="nav-link"><button className="btn">Admin Login</button></Link>
         </nav>

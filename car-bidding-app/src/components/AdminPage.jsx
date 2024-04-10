@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function AdminPage() {
     const [carInfo, setCarInfo] = useState({
@@ -58,7 +59,7 @@ function AdminPage() {
 
     const handleDeleteCar = async (vin) => {
         try {
-            await axios.delete(`${process.env.REACT_APP_API_URL}delete-car/${vin}/`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}api/delete_car/${vin}/`);
             // Handle success (e.g., show success message, refresh car list)
         } catch (error) {
             setError(error.response?.data?.message || 'Error deleting car');
@@ -67,6 +68,15 @@ function AdminPage() {
 
     return (
         <div className="admin-page">
+        <div className="header-title">
+            <h1>Group 8 CarBiddingSystem</h1>
+        </div>
+        <nav className="app-nav">
+          {/* <Link to="/" className="nav-link"><button className="btn">Home</button></Link> */}
+          <Link to="/" className="nav-link"><button className="btn">Logout</button></Link>
+          <Link to="/login" className="nav-link"><button className="btn">User Login</button></Link>
+          {/* <Link to="/create-account" className="nav-link"><button className="btn">Create Account</button></Link> */}
+      </nav>
             <h2>Add Car</h2>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <input type="text" name="vin" value={carInfo.vin} onChange={handleChange} placeholder="VIN" required />
