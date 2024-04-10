@@ -1,14 +1,14 @@
-// Use for submit the bid
-// Xinmeng Wu Apr. 8
-// up to date -- wxm
 import React, { useState } from 'react';
 import axios from 'axios';
 
 function BidSubmitBar({ onBidSubmit }) {
-  const [userId, setUserId] = useState('');
+  const [userIdInput, setUserIdInput] = useState('');
   const [bidAmount, setBidAmount] = useState('');
   const [auctionId, setAuctionId] = useState('');
   const [vin, setVin] = useState('');
+
+  const userId = localStorage.getItem('userId');
+  console.log('User ID from SessionStorage:', userId);
 
   // 一个示例的VIN验证函数，实际上你需要根据业务需求来定义这个函数
   const validateVIN = (vin) => {
@@ -18,32 +18,44 @@ function BidSubmitBar({ onBidSubmit }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!userId || !auctionId || !vin || !bidAmount) {
+  
+    if (!userIdInput || !auctionId || !vin || !bidAmount) {
       console.error('All fields are required');
       alert('Please fill in all fields.');
       return;
     }
-
+  
+    const trimmedUserIdInput = userIdInput.trim();
+    const storedUserId = String(localStorage.getItem('userId')).trim();
+    
+    console.log('User ID from input:', trimmedUserIdInput);
+    console.log('User ID from localStorage:', storedUserId);
+    
+    if (trimmedUserIdInput !== storedUserId) {
+      console.error('Invalid User ID');
+      alert('You can only use your own User ID to submit bids.');
+      return;
+    }
+  
     if (!validateVIN(vin)) {
       console.error('Invalid VIN');
       alert('The VIN entered is invalid.');
       return;
     }
-
+  
     const bidData = {
-      user: userId,
+      user: trimmedUserIdInput,
       auction: auctionId,
       bid_amount: bidAmount,
       vin: vin,
     };
-
+  
     console.log('Submitting bid:', bidData);
-
+  
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL}api/bid/`, bidData);
       console.log('Bid submitted successfully:', response.data);
-      setUserId('');
+      setUserIdInput('');
       setAuctionId('');
       setVin('');
       setBidAmount('');
@@ -51,12 +63,13 @@ function BidSubmitBar({ onBidSubmit }) {
       if (onBidSubmit) {
         onBidSubmit(response.data); // Pass the response data for further processing
       }
-
+  
     } catch (error) {
       console.error('Error submitting bid:', error);
       alert('There was an error submitting your bid.');
     }
   };
+  
 
   return (
     <div className="bid-submit-bar">
@@ -65,8 +78,8 @@ function BidSubmitBar({ onBidSubmit }) {
           User ID:
           <input
             type="text"
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
+            value={userIdInput}
+            onChange={(e) => setUserIdInput(e.target.value)}
             required
           />
         </label>

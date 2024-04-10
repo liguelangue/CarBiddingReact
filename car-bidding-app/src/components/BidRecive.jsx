@@ -23,7 +23,7 @@ function BidRecive({ vin, refreshKey }) {
 
   return (
     <div className="bid-receive-container">
-      <h2>Bids for VIN: {vin}</h2>
+      {/* <h2>Bids for VIN: {vin}</h2> */}
       <ul>
         {bids.map((bid, index) => (
           <li key={index}>

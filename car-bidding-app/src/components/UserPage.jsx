@@ -21,11 +21,18 @@ function CarsWVin() {
   const [filteredCars, setFilteredCars] = useState([]);
   const navigate = useNavigate();
   const [userEmail, setUserEmail] = useState('');
+  const [userid, setUserId] = useState('');
 
   useEffect(() => {
     const email = localStorage.getItem('userEmail');
     if (email) {
       setUserEmail(email);
+    }
+  }, []);
+  useEffect(() => {
+    const userid = localStorage.getItem('userId'); // Corrected key
+    if (userid) {
+      setUserId(userid);
     }
   }, []);
 
@@ -84,7 +91,7 @@ function CarsWVin() {
           {/* <Link to="/create-account" className="nav-link"><button className="btn">Create Account</button></Link> */}
           <Link to="/admin-login" className="nav-link"><button className="btn">Admin Login</button></Link>
       </nav>
-      <Header userEmail={userEmail} />
+      <Header userEmail={userEmail} userId={userid} />
       <UserLeftBar applyTextSearch={applyTextSearch} applySelectionFilters={applySelectionFilters} cars={cars} />
       <h2 className="user-cars-header">Cars</h2>
       {filteredCars.map((car, index) => (

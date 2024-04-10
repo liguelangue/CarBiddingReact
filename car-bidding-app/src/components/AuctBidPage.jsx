@@ -13,6 +13,7 @@ function AuctBidPage() {
 
     const [bids, setBids] = useState([]);
     const [bidsRefreshKey, setBidsRefreshKey] = useState(0);
+    const [showBids, setShowBids] = useState({}); // new state to keep track of which car's bids to show
 
     const refreshBids = () => {
         setBidsRefreshKey(prevKey => prevKey + 1);
@@ -73,7 +74,12 @@ function AuctBidPage() {
         }
         return null;
     };
-
+    const toggleBidsVisibility = (vin) => {
+      setShowBids(prevShowBids => ({
+          ...prevShowBids,
+          [vin]: !prevShowBids[vin],
+      }));
+  };
     return (
         <div className="auction-page-container">
             <div className="header-title">
@@ -98,12 +104,17 @@ function AuctBidPage() {
                     <h3>{car.make} {car.model}</h3>
                     <p>VIN: {car.vin}</p>
                     <p>Start Bid: {formatBid(auctionCar.start_bid)}</p>
-                    <p>Latest Bid: {formatBid(getLatestBidForVin(car.vin))}</p>
+                    {/* <p>Latest Bid: {formatBid(getLatestBidForVin(car.vin))}</p> */}
                     <p>Highest Bid: {formatBid(getHighestBidForVin(car.vin))}</p>
+                    <button onClick={() => toggleBidsVisibility(car?.vin)}>
+                        {showBids[car?.vin] ? 'Hide Bids' : 'Show Bids'}
+                    </button>
                 </div>
-                <div className="bid-receive-container">
-                    <BidRecive vin={car.vin} refreshKey={bidsRefreshKey}/>
-                </div>
+                {showBids[car?.vin] && (
+                                <div className="bid-receive-container">
+                                    <BidRecive vin={car?.vin} refreshKey={bidsRefreshKey}/>
+                                </div>
+                            )}
             </div>
         );
     }) : <p>No cars available for this auction.</p>}

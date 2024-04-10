@@ -25,6 +25,9 @@ function LoginPage() {
 
         if (response.data && typeof response.data.email !== 'undefined') {
           localStorage.setItem('userEmail', email);
+          // Set userId in sessionStorage after successful login
+          localStorage.setItem('userId', String(response.data.user_id));
+          console.log('User ID set in localStorage:', localStorage.getItem('userId'));
         } else {
           console.error('Unexpected response format:', response.data);
         }

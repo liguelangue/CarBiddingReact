@@ -4,14 +4,17 @@
 
 import React from 'react';
 
-function Header({ userEmail }) {
-  return (
-    <div className="User-header">
-      <div className="user-info">
-        <span>Welcome, {userEmail}</span>
+function Header({ userEmail, userId }) {
+    return (
+      <div className="User-header">
+        <div className="user-info">
+          <span>Welcome login</span>
+          <br/>
+          <span>User Email:  {userEmail} </span>
+          <br/>
+          <span>User ID: {userId} </span>
+        </div>
       </div>
-    </div>
-  );
-}
-
+    );
+  }
 export default Header;
