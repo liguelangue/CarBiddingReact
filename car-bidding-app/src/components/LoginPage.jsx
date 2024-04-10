@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -42,7 +43,17 @@ function LoginPage() {
 
   return(
 <div className="login-container">
-      <h2>Login</h2>
+      <div className="header-title">
+        <h1>Group 8 CarBiddingSystem</h1>
+      </div>
+
+      <nav className="app-nav">
+          <Link to="/" className="nav-link"><button className="btn">Home</button></Link>
+          {/* <Link to="/login" className="nav-link"><button className="btn">Login</button></Link> */}
+          <Link to="/create-account" className="nav-link"><button className="btn">Create Account</button></Link>
+          <Link to="/admin-login" className="nav-link"><button className="btn">Admin Login</button></Link>
+      </nav>
+      <h2>User - Login</h2>
       <form onSubmit={handleLogin} className="login-form">
         <input
           type="email"

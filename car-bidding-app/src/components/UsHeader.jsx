@@ -6,8 +6,7 @@ import React from 'react';
 
 function Header({ userEmail }) {
   return (
-    <div className="header">
-      <h1>User Dashboard</h1>
+    <div className="User-header">
       <div className="user-info">
         <span>Welcome, {userEmail}</span>
       </div>

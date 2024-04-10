@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import UserLeftBar from './UsLeftBar';
 import Header from './UsHeader';
+import { Link } from 'react-router-dom';
 
 function CarsWVin() {
   const [cars, setCars] = useState([]);
@@ -74,6 +75,15 @@ function CarsWVin() {
 
   return (
     <div className="user-cars-container">
+      <div className="header-title">
+        <h1>Group 8 CarBiddingSystem</h1>
+      </div>
+      <nav className="app-nav">
+          {/* <Link to="/" className="nav-link"><button className="btn">Home</button></Link> */}
+          <Link to="/" className="nav-link"><button className="btn">Logout</button></Link>
+          {/* <Link to="/create-account" className="nav-link"><button className="btn">Create Account</button></Link> */}
+          <Link to="/admin-login" className="nav-link"><button className="btn">Admin Login</button></Link>
+      </nav>
       <Header userEmail={userEmail} />
       <UserLeftBar applyTextSearch={applyTextSearch} applySelectionFilters={applySelectionFilters} cars={cars} />
       <h2 className="user-cars-header">Cars</h2>

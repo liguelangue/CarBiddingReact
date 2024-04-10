@@ -5,6 +5,7 @@
 // up to date - wxm
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import HoHeader from './HoHeader';
 
 function Cars() {
     const [cars, setCars] = useState([]);
@@ -29,6 +30,7 @@ function Cars() {
 
     return (
         <div className="cars-container">
+          <HoHeader />
           <h2 className="cars-header">Cars</h2>
           {cars.map((car, index) => (
             <div className="car-card" key={index}>
