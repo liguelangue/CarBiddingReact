@@ -1,6 +1,8 @@
 // Add Header.jsx, HoLeftBar.jsx here
 // CarList included in Home.jsx
 // Hide Vin for each car's info
+
+// up to date - wxm
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 

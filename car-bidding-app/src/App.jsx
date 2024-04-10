@@ -1,4 +1,5 @@
 // src/App.jsx
+// up to date - wxm
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import LoginPage from './components/LoginPage';  // Make sure this import is correct
@@ -24,7 +25,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/create-account" element={<CrtAccPage />} />
-          <Route path="/user" element={<UserPage />} />
+          <Route path="/user/:userEmail" element={<UserPage />} />
           <Route path="/admin-login" element={<AdminLoginPage />} />
           <Route path="/admin-page" element={<AdminPage />} />
           <Route path="/auction/:vin" element={<AuctBidPage />} />

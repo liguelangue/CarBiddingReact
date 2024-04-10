@@ -1,4 +1,6 @@
 // src/components/LoginButton.js
+
+// up to date -- wxm
 import React from 'react';
 
 function LoginButton({ onClick }) {

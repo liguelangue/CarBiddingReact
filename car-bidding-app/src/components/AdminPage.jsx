@@ -1,3 +1,5 @@
+// admin up to date (wxm) but problem with delete function
+
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -51,6 +53,15 @@ function AdminPage() {
             // Handle success (e.g., clear form, show success message)
         } catch (error) {
             setError(error.response?.data?.message || 'Error adding car');
+        }
+    };
+
+    const handleDeleteCar = async (vin) => {
+        try {
+            await axios.delete(`${process.env.REACT_APP_API_URL}delete-car/${vin}/`);
+            // Handle success (e.g., show success message, refresh car list)
+        } catch (error) {
+            setError(error.response?.data?.message || 'Error deleting car');
         }
     };
 
@@ -147,8 +158,23 @@ function AdminPage() {
                 <button type="submit">Add Car</button>
                 {error && <div className="error-message">{error}</div>}
             </form>
+            <div className="delete-car-section">
+                <h2>Delete Car</h2>
+                <input
+                    type="text"
+                    name="delete_vin"
+                    value={carInfo.delete_vin}
+                    onChange={handleChange}
+                    placeholder="VIN of car to delete"
+                />
+                <button onClick={() => handleDeleteCar(carInfo.delete_vin)}>Delete Car</button>
+                {error && <div className="error-message">{error}</div>}
+            </div>
         </div>
     );
+
+
 }
+
 
 export default AdminPage;
