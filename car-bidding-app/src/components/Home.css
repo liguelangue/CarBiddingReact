@@ -1,0 +1,103 @@
+/* Cars.css */
+
+.cars-page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set the height of the container to 100% of the viewport height */
+}
+
+.cars-content {
+    display: flex;
+    flex: 1; /* Allow the content to grow and take up remaining space */
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
+.car-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three items per row */
+    gap: 20px; /* Space between the cards */
+    padding: 20px;
+    max-height: calc(100% - 120px); /* Limit the maximum height of the car-list container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    align-items: start; /* Align cards to the top of the grid cells */
+}
+
+.car-card {
+    display: flex;
+    flex-direction: column; /* Stack image and details vertically */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures the content respects border-radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 10px; /* Decrease space between the cards */
+    max-height: 800px; /* Limit the maximum height of the card */
+}
+
+.car-make-model {
+    background-color: #ffffff; /* Set background to white */
+    padding: 4px 8px; /* Reduce padding at the top and bottom, keep left and right */
+    display: block; /* Block display to fill the width */
+    margin: 0px auto 18px; /* Negative top margin to move up, auto horizontally centers, bottom margin for space */
+    width: calc(100% - 16px); /* Width adjusted for padding */
+    box-sizing: border-box; /* Border and padding included in width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 7px; /* Rounded corners for a soft edge */
+    position: relative; /* To position correctly relative to parent */
+    text-align: center; /* Centers the text */
+}
+
+.group-info {
+    background-color: #000000; /* Black background color */
+    color: #ffffff; /* White text color */
+    font-family: 'Arial', sans-serif; /* A clean, visually appealing font */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add some padding around the text */
+    margin: 0; /* Remove margins to stretch background to edges */
+    font-size: 1rem; /* Adjust font size as needed */
+    line-height: 1.6; /* Adjust line spacing to improve readability */
+}
+
+
+.car-image {
+    width: 100%; /* Image takes full width of the card */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the entire area of the image container */
+    max-height: 500px; /* Limit the maximum height of the image */
+    border-radius: 7px; /* Rounded corners for the image */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow gives a floating effect */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+.car-image:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Slightly larger shadow on hover for a floating effect */
+}
+
+.car-details {
+    padding: 10px;
+    background-color: #f9f9f9; /* Background color for details */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* Adjust space between detail items */
+}
+.car-details p {
+    margin: 0; /* Remove the margin */
+    padding: 0; /* Remove the padding */
+}
+
+.car-details > :last-child {
+    margin-bottom: 0;
+}
+
+/* Adjustments for responsive design */
+@media (max-width: 1024px) {
+    .car-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .car-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ... additional responsive styles as needed ... */

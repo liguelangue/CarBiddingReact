@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
-
+import Logo from './CarBidding.png';
+import './LoginPage.css'
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -45,11 +45,14 @@ function LoginPage() {
 
 
   return(
-<div className="login-container">
-      <div className="header-title">
-        <h1>Group 8 CarBiddingSystem</h1>
-      </div>
-
+          <div className="login-container">
+           <header className="home-header">
+                <img className='logo' src={Logo} alt="Car Bidding Logo" />
+                <div className="header-title">
+                    <h1>CarBiddingSystem</h1>
+                </div>
+                <br></br>
+            </header>
       <nav className="app-nav">
           <Link to="/" className="nav-link"><button className="btn">Home</button></Link>
           {/* <Link to="/login" className="nav-link"><button className="btn">Login</button></Link> */}
@@ -74,7 +77,14 @@ function LoginPage() {
         />
         <button type="submit">Login</button>
       </form>
+      <div className="login-group-info">
+              <p>Group Members: Anning Tian, Pingyi Xu, QinHao Zhang, Xinmeng Wu</p>
+              <p>Class: CS5200 Database Management Systems</p>
+              <p>Professor: Dr. Tehmina Amjad</p>
+      </div>
     </div>
+
+    
   )
 }
 

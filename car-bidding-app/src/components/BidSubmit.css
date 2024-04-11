@@ -1,0 +1,62 @@
+/* BidSubmit.css */
+
+.bid-submit-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    height: 90vh;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    flex: 0 0 200px;
+    max-width: 20%;
+    min-width: 150px;
+  }
+  
+  .bid-submit-bar form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .bid-submit-bar label {
+    display: flex;
+    flex-direction: column; /* Stack input fields vertically */
+    margin-bottom: 1rem; /* Space between each label */
+  }
+  
+  .bid-submit-bar input {
+    padding: 10px;
+    margin-top: 0.5rem; /* Space between label text and input */
+    border: 1px solid #ccc; /* Consistent with other inputs */
+    border-radius: 5px; /* Rounded corners */
+    width: calc(100% - 20px); /* Full width minus padding */
+  }
+  
+  .bid-submit-bar button {
+    padding: 10px 20px;
+    margin-top: 10px; /* Space above the button */
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Consistent button color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth background color transition */
+  }
+  
+  .bid-submit-bar button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
+  /* You may want to include responsiveness if needed */
+  @media (max-width: 768px) {
+    .bid-submit-bar {
+      padding: 15px;
+    }
+  
+    .bid-submit-bar input,
+    .bid-submit-bar button {
+      width: 100%; /* Ensure full width on smaller screens */
+    }
+  }
+  

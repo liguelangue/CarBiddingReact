@@ -1,0 +1,121 @@
+.admin-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #fff;
+}
+
+.home-header, .app-nav {
+    width: 100%;
+    /* Add any additional styles you've been using for header and navigation */
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* or a max-width if you want to limit the form size */
+    max-width: 600px; /* Adjust max-width as necessary */
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.form-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section input[type="text"],
+.form-section input[type="number"],
+.form-section input[type="datetime-local"],
+.form-section input[type="file"],
+.form-section select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-section button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+}
+
+.form-section button:hover {
+    background-color: #dc3545;
+}
+
+.error-message {
+    color: #ff0000;
+    margin-top: 10px;
+}
+
+/* Apply similar styles to the delete-car-section */
+.delete-car-section {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 20px 0 40px;;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delete-car-section input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.CrtAcc-group-info {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.delete-button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545; /* Bootstrap's btn-danger background color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* A slightly darker shade on hover for button */
+}
+
+/* Additional style to give visual feedback for disabled state if needed */
+.delete-button:disabled {
+    background-color: #e2e3e5;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+
+@media (max-width: 768px) {
+    .form-section, .delete-car-section {
+        width: 90%;
+        margin: 20px auto;
+    }
+}

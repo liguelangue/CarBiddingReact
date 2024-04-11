@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./BidSubmit.css"
 
 function BidSubmitBar({ onBidSubmit }) {
   const [userIdInput, setUserIdInput] = useState('');

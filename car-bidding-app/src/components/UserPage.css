@@ -1,0 +1,136 @@
+.user-cars-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set the height of the container to 100% of the viewport height */
+}
+
+.user-cars-content {
+    display: flex;
+    flex: 1; /* Allow the content to grow and take up remaining space */
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
+.user-login-info {
+    display: flex;
+    flex-direction: column; /* Stack the elements vertically */
+    align-items: flex-start; /* Align items to the start */
+    justify-content: center; /* Center items vertically, if needed */
+    position: absolute; /* Absolute position to place it specifically */
+    top: 3.5%; /* Position from the top of the screen */
+    right: 20px; /* Position from the right of the screen */
+    padding: 15px; /* Padding around the text */
+    border: 1px solid #ddd; /* Border color for light theme */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f8f9fa; /* A light grey background for light theme */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    z-index: 10; /* Above other content but below modals/popups if any */
+    max-width: 250px; /* To avoid stretching too far on wide screens */
+    box-sizing: border-box; /* Include padding and border in the width */
+  }
+  
+  /* Style the texts within the user login info */
+  .user-login-info h1, 
+  .user-login-info h2 {
+    margin: 2px 0; /* Spacing between the elements */
+    color: #333; /* Dark text color for readability */
+    font-size: 1em; /* Appropriate font size */
+  }
+  
+  /* Ensure the parent element has relative positioning */
+  .parent-of-user-login-info {
+    position: relative; /* Needed for absolute positioning context */
+  }
+  
+  /* Update the background color of the parent element or body if it's the top-level element */
+  body {
+    background-color: #e9ecef; /* A soft color that complements the info box */
+  }
+  
+  
+  /* Add a media query for smaller screens if needed */
+  @media (max-width: 768px) {
+    .user-login-info {
+      top: auto;
+      bottom: 20px; /* Position it at the bottom on smaller screens */
+      right: 20px;
+      left: auto;
+    }
+  }
+  
+
+
+.user-car-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three items per row */
+    gap: 20px; /* Space between the cards */
+    padding: 20px;
+    max-height: calc(100% - 120px); /* Limit the maximum height of the car-list container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    align-items: start; /* Align cards to the top of the grid cells */
+}
+
+.user-car-card {
+    display: flex;
+    flex-direction: column; /* Stack image and details vertically */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures the content respects border-radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 10px; /* Decrease space between the cards */
+    max-height: 814px; /* Limit the maximum height of the card */
+    width: 450px;
+}
+
+.user-car-make-model {
+    background-color: #ffffff; /* Set background to white */
+    padding: 4px 8px; /* Reduce padding at the top and bottom, keep left and right */
+    display: block; /* Block display to fill the width */
+    margin: 0px auto 18px; /* Negative top margin to move up, auto horizontally centers, bottom margin for space */
+    width: calc(100% - 16px); /* Width adjusted for padding */
+    box-sizing: border-box; /* Border and padding included in width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 7px; /* Rounded corners for a soft edge */
+    position: relative; /* To position correctly relative to parent */
+    text-align: center; /* Centers the text */
+}
+.user-car-image {
+    width: 100%; /* Image takes full width of the card */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the entire area of the image container */
+    max-height: 500px; /* Limit the maximum height of the image */
+    border-radius: 7px; /* Rounded corners for the image */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow gives a floating effect */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+.user-car-image:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Slightly larger shadow on hover for a floating effect */
+}
+
+.user-car-details {
+    padding: 10px;
+    background-color: #f9f9f9; /* Background color for details */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* Adjust space between detail items */
+}
+.user-car-details p {
+    margin: 0; /* Remove the margin */
+    padding: 0; /* Remove the padding */
+}
+
+.user-car-details > :last-child {
+    margin-bottom: 0;
+}
+
+/* Adjustments for responsive design */
+@media (max-width: 1024px) {
+    .user-car-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .user-car-list {
+        grid-template-columns: 1fr;
+    }
+}

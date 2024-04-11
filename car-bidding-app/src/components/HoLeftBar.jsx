@@ -3,6 +3,7 @@
 // up tp date -- wxm
 
 import React, { useState } from 'react';
+import './HoLeftBar.css'; 
 
 function HomeLeftBar({ applyTextSearch, applySelectionFilters, cars }) {
     const [searchTerm, setSearchTerm] = useState('');
@@ -57,10 +58,11 @@ function HomeLeftBar({ applyTextSearch, applySelectionFilters, cars }) {
                     type="text"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="Search By Make!"
+                    placeholder="Search By Make"
                 />
                 <button type="submit">Search</button>
             </form>
+            <p></p>
   
             {/* Dropdown Selections Form */}
             <form onSubmit={handleSelectionSearch}>
@@ -95,7 +97,7 @@ function HomeLeftBar({ applyTextSearch, applySelectionFilters, cars }) {
                         <option key={range.value} value={range.value}>{range.label}</option>
                     ))}
                 </select>
-                <button type="submit">Search</button>
+                <button type="submit">Filter</button>
             </form>
         </div>
     );

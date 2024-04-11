@@ -6,7 +6,7 @@ import LoginPage from './components/LoginPage';  // Make sure this import is cor
 import CrtAccPage from './components/CrtAccPage';
 import Home from './components/Home';
 import HoHeader from './components/HoHeader';
-import './App.css'; 
+// import './App.css'; 
 import UserPage from './components/UserPage';
 // import UsHeader from './components/UsHeader';
 import AdminLoginPage from './components/AdminLoginPage';

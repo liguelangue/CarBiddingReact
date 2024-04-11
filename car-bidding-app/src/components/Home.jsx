@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import HoHeader from './HoHeader';
 import HomeLeftBar from './HoLeftBar';
+import './Home.css';
 
 function Cars() {
     const [cars, setCars] = useState([]);
@@ -54,27 +55,47 @@ function Cars() {
     const displayCars = hasSearched ? filteredCars : cars;
 
     return (
-        <div className="cars-container">
-            <HoHeader />
-            <HomeLeftBar applyTextSearch={applyTextSearch} applySelectionFilters={applySelectionFilters} cars={cars} />
-            <h2 className="cars-header">Cars</h2>
+      <div className="cars-page-container">
+        <HoHeader />
+        <div className="cars-content">
+          <HomeLeftBar 
+            applyTextSearch={applyTextSearch} 
+            applySelectionFilters={applySelectionFilters} 
+            cars={cars} 
+          />
+          <div className="car-list">
             {displayCars.map((car, index) => (
-                <div className="car-card" key={index}>
-                    <img className="car-image" src={car.image} alt={`${car.make} ${car.model}`} />
-                    <div className="car-details">
-                        <h3>{car.make} {car.model}</h3>
-                        <p>Exterior Color: {car.exterior_color}</p>
-                        <p>Interior Color: {car.interior_color}</p>
-                        <p>Fuel: {car.fuel}</p>
-                        <p>Year: {car.year}</p>
-                        <p>List Time: {car.list_time}</p>
-                        <p>List Price: ${car.list_price}</p>
-                        <p>Current Mileage: {car.current_mileage} miles</p>
-                    </div>
+              <div className="car-card" key={index}>
+                {/* Display the car image */}
+                <img className="car-image" src={car.image} alt={`${car.make} ${car.model}`} />
+                {/* Display car details */}
+                <div className="car-details">
+                <div className="car-make-model">
+                  <h3>{car.make} {car.model}</h3>
+                </div> 
+
+                  <p>Exterior Color: {car.exterior_color}</p>
+                  <p>Interior Color: {car.interior_color}</p>
+                  <p>Fuel Type: {car.fuel}</p>
+                  <p>Year: {car.year}</p>
+                  {/* Other details can be included here, but we'll omit the VIN */}
+                  <p>Mileage: {car.current_mileage} miles</p>
+                  <p>Price: ${car.list_price}</p>
+                  {/* If there are more details you want to display, add them here */}
                 </div>
+              </div>
             ))}
+          </div>
         </div>
+            <div className="group-info">
+                <p>Group Members: Anning Tian, Pingyi Xu, QinHao Zhang, Xinmeng Wu</p>
+                <p>Class: CS5200 Database Management Systems</p>
+                <p>Professor: Dr. Tehmina Amjad</p>
+            </div>
+      </div>
     );
+    
+    
 }
 
 export default Cars;

@@ -1,0 +1,69 @@
+/* Header overall style */
+.home-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+/* Logo style, ensuring it aligns with the title */
+.logo {
+    height: auto; /* maintain aspect ratio */
+    width: 8%; /* Reduce width as needed */
+    margin-top: 0rem; /* Space above logo; keep as is */
+    margin-bottom: -2rem; /* Reduce space below logo */
+    align-self: center; /* Align logo to the left side */
+}
+
+/* Title style, adjusted for larger size and proper alignment */
+.header-title {
+    flex-grow: 1;
+    text-align: center; /* Center the title text */
+    width: 100%; /* Allow the title to take the full width */
+    margin: 0; /* Remove margin */
+}
+
+.header-title h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 3rem; /* Adjust font-size for larger title */
+    color: white; /* Specify title color if needed */
+    margin: 0; /* Adjust or remove margin as needed */
+}
+
+/* Navigation bar style */
+.app-nav {
+    width: 100%; /* Navigation bar takes full width */
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0; /* Padding inside the navigation bar */
+    background-color: red; /* Match the header background */
+}
+
+/* Button style */
+.btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 1rem; /* Increase padding for larger buttons */
+    cursor: pointer;
+    font-weight: 800; /* This will make the text bold */
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #555; /* A lighter grey for hover effect */
+    transform: scale(1.2); /* Button grows slightly */
+}
+
+/* Link style, ensuring they are white */
+.nav-link, .nav-link:visited, .nav-link:hover {
+    color: white;
+    font-weight: 700; /* Make navigation text bold */
+    text-transform: uppercase; /* Optional: uppercase for a cleaner look */
+    font-size: 1.2rem; /* Adjust the font size as needed */
+    padding: 0 1rem; /* Spacing between navigation items */
+}

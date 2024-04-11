@@ -15,6 +15,8 @@ import axios from 'axios';
 import UserLeftBar from './UsLeftBar';
 import Header from './UsHeader';
 import { Link } from 'react-router-dom';
+import Logo from './CarBidding.png';
+import './UserPage.css';
 
 function CarsWVin() {
   const [cars, setCars] = useState([]);
@@ -82,22 +84,34 @@ function CarsWVin() {
 
   return (
     <div className="user-cars-container">
-      <div className="header-title">
-        <h1>Group 8 CarBiddingSystem</h1>
-      </div>
+           <header className="home-header">
+                <img className='logo' src={Logo} alt="Car Bidding Logo" />
+                <div className="header-title">
+                    <h1>CarBiddingSystem</h1>
+                </div>
+                <br></br>
+            </header>
       <nav className="app-nav">
           {/* <Link to="/" className="nav-link"><button className="btn">Home</button></Link> */}
           <Link to="/" className="nav-link"><button className="btn">Logout</button></Link>
           {/* <Link to="/create-account" className="nav-link"><button className="btn">Create Account</button></Link> */}
           <Link to="/admin-login" className="nav-link"><button className="btn">Admin Login</button></Link>
       </nav>
-      <Header userEmail={userEmail} userId={userid} />
+      <div className='user-login-info'>
+      <h1>Welcome Login,</h1>
+      <h2>{userEmail}</h2> 
+      <h2> User ID: {userid}</h2>
+      </div>
+      <div className="user-cars-content">
       <UserLeftBar applyTextSearch={applyTextSearch} applySelectionFilters={applySelectionFilters} cars={cars} />
-      <h2 className="user-cars-header">Cars</h2>
+      <div className="user-car-list">
       {filteredCars.map((car, index) => (
         <div className="user-car-card" key={index}>
           <img className="user-car-image" src={car.image} alt={`${car.make} ${car.model}`} />
+          <div className="user-car-details"> 
+          <div className="user-car-make-model">
           <h3>{car.make} {car.model}</h3>
+                </div> 
           <p>Exterior Color: {car.exterior_color}</p>
           <p>Interior Color: {car.interior_color}</p>
           <p>VIN: {car.vin}</p>
@@ -106,9 +120,22 @@ function CarsWVin() {
           <p>List Time: {car.list_time}</p>
           <p>List Price: ${car.list_price}</p>
           <p>Current Mileage: {car.current_mileage} miles</p>
+          <br></br>
           <button onClick={() => goToAuction(car.vin)}>Join Bidding</button>
         </div>
+        </div>
       ))}
+
+
+      </div>
+      </div>
+      
+ 
+                <div className="CrtAcc-group-info">
+              <p>Group Members: Anning Tian, Pingyi Xu, QinHao Zhang, Xinmeng Wu</p>
+              <p>Class: CS5200 Database Management Systems</p>
+              <p>Professor: Dr. Tehmina Amjad</p>
+      </div>
     </div>
   );
 }

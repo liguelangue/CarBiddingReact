@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Logo from './CarBidding.png';
+import './AdminPage.css'
 
 function AdminPage() {
     const [carInfo, setCarInfo] = useState({
@@ -68,9 +70,13 @@ function AdminPage() {
 
     return (
         <div className="admin-page">
-        <div className="header-title">
-            <h1>Group 8 CarBiddingSystem</h1>
-        </div>
+            <header className="home-header">
+                <img className='logo' src={Logo} alt="Car Bidding Logo" />
+                <div className="header-title">
+                    <h1>CarBiddingSystem</h1>
+                </div>
+                <br></br>
+            </header>
         <nav className="app-nav">
           {/* <Link to="/" className="nav-link"><button className="btn">Home</button></Link> */}
           <Link to="/" className="nav-link"><button className="btn">Logout</button></Link>
@@ -78,7 +84,7 @@ function AdminPage() {
           {/* <Link to="/create-account" className="nav-link"><button className="btn">Create Account</button></Link> */}
       </nav>
             <h2>Add Car</h2>
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <form className="form-section" onSubmit={handleSubmit} encType="multipart/form-data">
                 <input type="text" name="vin" value={carInfo.vin} onChange={handleChange} placeholder="VIN" required />
                 <input type="text" name="exterior_color" value={carInfo.exterior_color} onChange={handleChange} placeholder="Exterior Color" required />
                 <input type="text" name="interior_color" value={carInfo.interior_color} onChange={handleChange} placeholder="Interior Color" required />
@@ -176,9 +182,17 @@ function AdminPage() {
                     value={carInfo.delete_vin}
                     onChange={handleChange}
                     placeholder="VIN of car to delete"
+                    required // Assuming it's necessary for the VIN to be entered
                 />
-                <button onClick={() => handleDeleteCar(carInfo.delete_vin)}>Delete Car</button>
+                <button class='delete-button' onClick={() => handleDeleteCar(carInfo.delete_vin)}>Delete Car</button>
                 {error && <div className="error-message">{error}</div>}
+            </div>
+            <br></br>
+            <br></br>
+            <div className="CrtAcc-group-info">
+              <p>Group Members: Anning Tian, Pingyi Xu, QinHao Zhang, Xinmeng Wu</p>
+              <p>Class: CS5200 Database Management Systems</p>
+              <p>Professor: Dr. Tehmina Amjad</p>
             </div>
         </div>
     );

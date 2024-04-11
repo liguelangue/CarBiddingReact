@@ -4,19 +4,25 @@
 // up to date -- wxm, Jason
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './HoHeader.css'; 
+import Logo from './CarBidding.png';
+
 
 
 const HoHeader = () => {
     return (
         <header className="home-header">
+            <img className='logo' src={Logo} alt="Car Bidding Logo" />
             <div className="header-title">
-                <h1>Group 8 CarBiddingSystem</h1>
+                <h1>CarBiddingSystem</h1>
             </div>
-            <div className="group-info">
+
+            {/* <div className="group-info">
                 <p>Group Members: Anning Tian, Pingyi Xu, QinHao Zhang, Xinmeng Wu</p>
                 <p>Class: CS5200 Database Management Systems</p>
                 <p>Professor: Dr. Tehmina Amjad</p>
-            </div>
+            </div> */}
+            <br></br>
             <nav className="app-nav">
                 <Link to="/" className="nav-link"><button className="btn">Home</button></Link>
                 <Link to="/login" className="nav-link"><button className="btn">Login</button></Link>

@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Logo from './CarBidding.png';
+import './CrtAccPage.css'
 
 function CreateAccountPage() {
     const [email, setEmail] = useState('');
@@ -46,9 +48,13 @@ function CreateAccountPage() {
 
     return (
     <div className="create-account-container">
-     <div className="header-title">
-        <h1>Group 8 CarBiddingSystem</h1>
-      </div>
+           <header className="home-header">
+                <img className='logo' src={Logo} alt="Car Bidding Logo" />
+                <div className="header-title">
+                    <h1>CarBiddingSystem</h1>
+                </div>
+                <br></br>
+            </header>
         <nav className="app-nav">
           <Link to="/" className="nav-link"><button className="btn">Home</button></Link>
           <Link to="/login" className="nav-link"><button className="btn">User Login</button></Link>
@@ -102,22 +108,23 @@ function CreateAccountPage() {
                     placeholder="First Name"
                     required
                 />
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={seller}
-                        onChange={(e) => setSeller(e.target.checked)}
-                    />
-                    Seller
-                </label>
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={bidder}
-                        onChange={(e) => setBidder(e.target.checked)}
-                    />
-                    Bidder
-                </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={seller}
+                            onChange={(e) => setSeller(e.target.checked)}
+                        />
+                        <span>Seller</span>
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={bidder}
+                            onChange={(e) => setBidder(e.target.checked)}
+                        />
+                        <span>Bidder</span>
+                    </label>
+
                 <input
                     type="text"
                     value={street}
@@ -149,6 +156,12 @@ function CreateAccountPage() {
                 <button type="submit">Create Account</button>
                 {error && <div className="error-message">{error}</div>}
             </form>
+            <br></br>
+            <div className="CrtAcc-group-info">
+              <p>Group Members: Anning Tian, Pingyi Xu, QinHao Zhang, Xinmeng Wu</p>
+              <p>Class: CS5200 Database Management Systems</p>
+              <p>Professor: Dr. Tehmina Amjad</p>
+      </div>
         </div>
     );
 }

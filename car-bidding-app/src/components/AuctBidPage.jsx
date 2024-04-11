@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import BidSubmitBar from './BidSubmit';
 import BidRecive from './BidRecive';
 import { Link } from 'react-router-dom';
+import Logo from './CarBidding.png';
+import './AuctBidPage.css';
 
 function AuctBidPage() {
     const [auctionCars, setAuctionCars] = useState([]);
@@ -81,32 +83,45 @@ function AuctBidPage() {
       }));
   };
     return (
+      
         <div className="auction-page-container">
-            <div className="header-title">
-                <h1>Group 8 CarBiddingSystem</h1>
-            </div>
+            <header className="home-header">
+                <img className='logo' src={Logo} alt="Car Bidding Logo" />
+                <div className="header-title">
+                    <h1>CarBiddingSystem</h1>
+                </div>
+                <br></br>
+            </header>
             <nav className="app-nav">
                 <Link to="/" className="nav-link"><button className="btn">Logout</button></Link>
                 <Link to="/login" className="nav-link"><button className="btn">User Login</button></Link>
             </nav>
+
+
+          {/* ------ */}
+          <h2 className="auction-cars-header">Auction: {auctionId}</h2>
+
+            <div className="auction-cars-content">
             <div className="sidebar">
                 <BidSubmitBar onBidSubmit={refreshBids}/>
             </div>
-
-            <div className="auction-cars-container">
-    <h2 className="auction-cars-header">Auction: {auctionId}</h2>
+            <div className="auction-car-list"> 
     {auctionCars.length > 0 ? auctionCars.map((auctionCar, index) => {
         const car = auctionCar.vin;
         return (
             <div className="auction-car-card" key={index}>
                 <img className="auction-car-image" src={carDetails[car.vin]?.image} alt={`Car ${car.make} ${car.model}`} />
                 <div className="auction-car-details">
-                    <h3>{car.make} {car.model}</h3>
+                <div className="auction-car-make-model">
+                  <h3>{car.make} {car.model}</h3>
+                </div> 
                     <p>VIN: {car.vin}</p>
                     <p>Start Bid: {formatBid(auctionCar.start_bid)}</p>
                     {/* <p>Latest Bid: {formatBid(getLatestBidForVin(car.vin))}</p> */}
                     <p>Highest Bid: {formatBid(getHighestBidForVin(car.vin))}</p>
-                    <button onClick={() => toggleBidsVisibility(car?.vin)}>
+                    <br></br>
+                    <div className="toggle-bids-button-container">
+                    <button className="bid-button" onClick={() => toggleBidsVisibility(car?.vin)}>
                         {showBids[car?.vin] ? 'Hide Bids' : 'Show Bids'}
                     </button>
                 </div>
@@ -115,15 +130,23 @@ function AuctBidPage() {
                                     <BidRecive vin={car?.vin} refreshKey={bidsRefreshKey}/>
                                 </div>
                             )}
+                                </div>
             </div>
         );
     }) : <p>No cars available for this auction.</p>}
+    
 
 
                 <div className="bid-receive-container">
                     <BidRecive refreshKey={bidsRefreshKey}/>
                 </div>
             </div>
+            </div>
+            <div className="CrtAcc-group-info">
+              <p>Group Members: Anning Tian, Pingyi Xu, QinHao Zhang, Xinmeng Wu</p>
+              <p>Class: CS5200 Database Management Systems</p>
+              <p>Professor: Dr. Tehmina Amjad</p>
+      </div>
         </div>
     );
 }

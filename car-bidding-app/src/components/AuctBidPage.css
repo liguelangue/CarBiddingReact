@@ -1,0 +1,149 @@
+.auction-page-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set the height of the container to 100% of the viewport height */
+}
+.sidebar {
+    /* Define the width or flex-basis of the sidebar and any other styling */
+    flex: 0 0 200px; /* Replace '200px' with the width you want for the sidebar */
+    /* Add any additional styles for the sidebar here */
+}
+
+
+.auction-cars-content{
+    display: flex;
+    flex: 1; /* Allow the content to grow and take up remaining space */
+    overflow: hidden; /* Prevent content from overflowing */
+
+}
+.auction-car-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three items per row */
+    gap: 20px; /* Space between the cards */
+    padding: 20px;
+    max-height: calc(100% - 120px); /* Limit the maximum height of the car-list container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    align-items: start; /* Align cards to the top of the grid cells */
+}
+
+.bid-receive-container {
+    order: 3; /* Makes sure that the bids container comes after the button */
+    /* ... existing styles ... */
+}
+.toggle-bids-button-container {
+    order: 2; /* Position the button above the bid records */
+    padding-bottom: 10px; /* Add some space below the button */
+}
+
+.auction-car-card {
+    display: flex;
+    flex-direction: column; /* Stack image and details vertically */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures the content respects border-radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 10px; /* Decrease space between the cards */
+    max-height: 814px; /* Limit the maximum height of the card */
+    display: flex;
+    flex-direction: column; /* Stack the image, details, and bids vertically */
+    justify-content: space-between;
+    position: relative;
+}
+
+.bid-button {
+    position: absolute;
+    top: 590px;
+    right: 10px;
+    z-index: 2;
+    padding: 8px 16px; /* Larger padding for a bigger, easier-to-click button */
+    background-color: #ff4500; /* A bold color for the button */
+    color: #fff; /* White text color for contrast */
+    border: none; /* No border for a modern look */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold; /* Make the text bold */
+    text-transform: uppercase; /* Uppercase text for stylistic preference */
+    cursor: pointer; /* Change cursor to pointer to indicate clickability */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions for interactions */
+}
+
+.bid-button:hover,
+.bid-button:focus {
+    background-color: #e93e00; /* Darker shade on hover/focus for feedback */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow for "lifting" effect */
+    outline: none; /* Remove the outline for a clean design */
+}
+
+.bid-button:active {
+    background-color: #c23300; /* Even darker for a pressed button effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Smaller shadow to mimic "pressing down" */
+}
+.auction-car-make-model {
+    background-color: #ffffff; /* Set background to white */
+    padding: 4px 8px; /* Reduce padding at the top and bottom, keep left and right */
+    display: block; /* Block display to fill the width */
+    margin: 0px auto 18px; /* Negative top margin to move up, auto horizontally centers, bottom margin for space */
+    width: calc(100% - 16px); /* Width adjusted for padding */
+    box-sizing: border-box; /* Border and padding included in width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 7px; /* Rounded corners for a soft edge */
+    position: relative; /* To position correctly relative to parent */
+    text-align: center; /* Centers the text */
+}
+.auction-car-image {
+    width: 100%; /* Image takes full width of the card */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the entire area of the image container */
+    max-height: 500px; /* Limit the maximum height of the image */
+    border-radius: 7px; /* Rounded corners for the image */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow gives a floating effect */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+.auction-car-image:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Slightly larger shadow on hover for a floating effect */
+}
+
+.auction-car-details {
+    order: 1; /* Car details come first */
+    padding: 10px;
+    background-color: #f9f9f9; /* Background color for details */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* Adjust space between detail items */
+}
+.auction-car-details p {
+    margin: 0; /* Remove the margin */
+    padding: 0; /* Remove the padding */
+}
+.auction-car-details > :last-child {
+    margin-bottom: 0;
+}
+/* Adjustments for responsive design */
+@media (max-width: 1024px) {
+    .auction-car-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .auction-car-list {
+        grid-template-columns: 1fr;
+    }
+}
+.auction-cars-header {
+    display: flex;
+    flex-direction: column; /* Stack the elements vertically */
+    align-items: flex-start; /* Align items to the start */
+    justify-content: center; /* Center items vertically, if needed */
+    position: absolute; /* Absolute position to place it specifically */
+    top: 3.5%; /* Position from the top of the screen */
+    right: 20px; /* Position from the right of the screen */
+    padding: 15px; /* Padding around the text */
+    border: 1px solid #ddd; /* Border color for light theme */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f8f9fa; /* A light grey background for light theme */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    z-index: 10; /* Above other content but below modals/popups if any */
+    max-width: 250px; /* To avoid stretching too far on wide screens */
+    box-sizing: border-box; /* Include padding and border in the width */
+  }
