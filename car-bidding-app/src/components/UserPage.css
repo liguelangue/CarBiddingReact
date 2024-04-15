@@ -2,12 +2,15 @@
     display: flex;
     flex-direction: column;
     height: 100vh; /* Set the height of the container to 100% of the viewport height */
+    max-height: calc(100vh);
 }
 
 .user-cars-content {
     display: flex;
     flex: 1; /* Allow the content to grow and take up remaining space */
-    overflow: hidden; /* Prevent content from overflowing */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal scrolling */
+    margin-bottom: 20px;
 }
 
 .user-login-info {
@@ -60,13 +63,15 @@
 
 
 .user-car-list {
+    align-content: start; 
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three items per row */
-    gap: 20px; /* Space between the cards */
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    column-gap: 20px; /* Space between the cards horizontally */
     padding: 20px;
-    max-height: calc(100% - 120px); /* Limit the maximum height of the car-list container */
-    overflow-y: auto; /* Enable vertical scrolling */
-    align-items: start; /* Align cards to the top of the grid cells */
+    align-items: start;
+    width: 100%;
+    row-gap: 600px; /* No space between the cards vertically */
+    margin-bottom: 0px;
 }
 
 .user-car-card {
@@ -75,9 +80,8 @@
     border-radius: 10px; /* Rounded corners */
     overflow: hidden; /* Ensures the content respects border-radius */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    margin-bottom: 10px; /* Decrease space between the cards */
-    max-height: 814px; /* Limit the maximum height of the card */
-    width: 450px;
+    margin-bottom: 0px; /* Decrease space between the cards */
+    max-height: 800px; /* Limit the maximum height of the card */
 }
 
 .user-car-make-model {
@@ -120,6 +124,17 @@
 
 .user-car-details > :last-child {
     margin-bottom: 0;
+}
+
+.User-group-info{
+    background-color: #000000; /* Black background color */
+    color: #ffffff; /* White text color */
+    font-family: 'Arial', sans-serif; /* A clean, visually appealing font */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add some padding around the text */
+    margin: 0; /* Remove margins to stretch background to edges */
+    font-size: 1rem; /* Adjust font size as needed */
+    line-height: 1.6; /* Adjust line spacing to improve readability */
 }
 
 /* Adjustments for responsive design */

@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh; /* Set the height of the container to 100% of the viewport height */
+    max-height: calc(100vh);
 }
 .sidebar {
     /* Define the width or flex-basis of the sidebar and any other styling */
@@ -13,12 +14,13 @@
 .auction-cars-content{
     display: flex;
     flex: 1; /* Allow the content to grow and take up remaining space */
-    overflow: hidden; /* Prevent content from overflowing */
-
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal scrolling */
+    margin-bottom: 20px;
 }
 .auction-car-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three items per row */
+    grid-template-columns: repeat(4, 1fr); /* Three items per row */
     gap: 20px; /* Space between the cards */
     padding: 20px;
     max-height: calc(100% - 120px); /* Limit the maximum height of the car-list container */

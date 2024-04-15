@@ -4,22 +4,27 @@
     display: flex;
     flex-direction: column;
     height: 100vh; /* Set the height of the container to 100% of the viewport height */
+    max-height: calc(100vh);
 }
 
 .cars-content {
     display: flex;
     flex: 1; /* Allow the content to grow and take up remaining space */
-    overflow: hidden; /* Prevent content from overflowing */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal scrolling */
+    margin-bottom: 20px;
 }
 
 .car-list {
+    align-content: start; 
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Three items per row */
-    gap: 20px; /* Space between the cards */
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    column-gap: 20px; /* Space between the cards horizontally */
     padding: 20px;
-    max-height: calc(160% - 400px); /* Limit the maximum height of the car-list container */
-    overflow-y: auto; /* Enable vertical scrolling */
-    align-items: start; /* Align cards to the top of the grid cells */
+    align-items: start;
+    width: 100%;
+    row-gap: 500px; /* No space between the cards vertically */
+    margin-bottom: 0px;
 }
 
 .car-card {
@@ -28,7 +33,7 @@
     border-radius: 10px; /* Rounded corners */
     overflow: hidden; /* Ensures the content respects border-radius */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    margin-bottom: 10px; /* Decrease space between the cards */
+    margin-bottom: 0px; /* Decrease space between the cards */
     max-height: 800px; /* Limit the maximum height of the card */
 }
 

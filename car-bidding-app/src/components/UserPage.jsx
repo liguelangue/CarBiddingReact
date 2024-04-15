@@ -131,7 +131,7 @@ function CarsWVin() {
       </div>
       
  
-                <div className="CrtAcc-group-info">
+              <div className="User-group-info">
               <p>Group Members: Anning Tian, Pingyi Xu, QinHao Zhang, Xinmeng Wu</p>
               <p>Class: CS5200 Database Management Systems</p>
               <p>Professor: Dr. Tehmina Amjad</p>
