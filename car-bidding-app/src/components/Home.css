@@ -14,10 +14,10 @@
 
 .car-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three items per row */
+    grid-template-columns: repeat(5, 1fr); /* Three items per row */
     gap: 20px; /* Space between the cards */
     padding: 20px;
-    max-height: calc(100% - 120px); /* Limit the maximum height of the car-list container */
+    max-height: calc(160% - 400px); /* Limit the maximum height of the car-list container */
     overflow-y: auto; /* Enable vertical scrolling */
     align-items: start; /* Align cards to the top of the grid cells */
 }
